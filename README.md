@@ -48,26 +48,29 @@ This classes have to extend the class _Model_ and at least implement the abstrac
 
 To see how it works, go to the Person class. When you have a table named _persons_ with the 
 following columns
-> id INTEGER AUTO INCREMENT
-> first_name VARCHAR(50)
-> last_name VARCHAR(50)
-> age INTEGER
-you can use the Person class the following way
-> // fetch a Person by ID
-> $p = new Person();
-> $p->id = 2;
-> $p->fetch();
->
-> // fetch a list of persons by age
-> $p = new Person();
-> $oldOnes = $p->fetchAll('age > 60');
->
-> // store a new person
-> $p = new Person();
-> $p->first_name = 'Eddie';
-> $p->last_name = 'Russett';
-> $p->age = 21;
-> $p->persist();
 
+    id INTEGER AUTO INCREMENT
+    first_name VARCHAR(50)
+    last_name VARCHAR(50)
+    age INTEGER
+
+you can use the Person class the following way
+
+    // fetch a Person by ID
+    $p = new Person();
+    $p->id = 2;
+    $p->fetch();
+
+    // fetch a list of persons by age
+    $p = new Person();
+    $oldOnes = $p->fetchAll('age > 60');
+
+    // store a new person
+    $p = new Person();
+    $p->first_name = 'Eddie';
+    $p->last_name = 'Russett';
+    $p->age = 21;
+    $p->persist();
+    
 
 
