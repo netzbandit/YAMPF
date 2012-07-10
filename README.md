@@ -7,24 +7,29 @@ Yet Another Simple PHP MVC Framework
 What is it?
 -----------
 
-yasp-mf is a simple MVC framework for building PHP applications. 
+yasp-mf is a simple mvc framework for building php applications. 
 It uses mod_rewrite rules to route URLs to the correct controllers and actions.
+
+I started creating the framework following the tutorial here
+[http://anantgarg.com/2009/03/13/write-your-own-php-mvc-framework-part-1/](http://anantgarg.com/2009/03/13/write-your-own-php-mvc-framework-part-1/),
+but extended and changed it a lot and intend to change and extend it much more.
 
 Getting started
 ---------------
 
 To get started, just copy the project to a folder in your web server's document root. 
-Open the folder's URL in the browser and you should read "Hello, yasp-mf".
+Open the folder's url in the browser and you should read "Hello, yasp-mf".
 
 ### What happend?
 
-When no controller and action is given in the URL, yasp-mf takes _start/index_ instead.
+When no controller and action is given in the url, yasp-mf takes _start/index_ instead.
 So the method _index_ in the class _StartController_ has been called an afterwards the
 view start/index.php has been rendered. The controller just set the greetings message
 and the view displayed it inside a H1 tag.
 
 To call a controller and action directly go to the URL 
-> http://SERVER/PATH_TO_APP/CONTROLLER/ACTION/PARAM_1/PARAM_2
+
+    http://server/path/to/app/controller/action/param_1/param_2
 
 ### What next?
 
@@ -35,15 +40,16 @@ For every action has to be a corresponding view. In the case of our start/index 
 located in the views/start directory and is named index.php.
 
 To create a link to a controller/action use the function 
-> _link($controller, $action, $params)
+   
+    _link($controller, $action, $params)
 
 ### What if I want to use a database?
 
-yasp-mf also includes a very simple way to access data stored in a MySQL database called SPPOs
+yasp-mf also includes a very simple way to access data stored in a mysql database called sppo
 (self-persistent php objects). To use this functionallity, change the setting _USE_DB_ 
-(in config/config.php) to _true_ and add your DB connection data to the config.
+(in config/config.php) to _true_ and add your db connection data to the config.
 
-Now you have to create a class (in the _model_ directory) for each DB table you want to access.
+Now you have to create a class (in the _model_ directory) for each db table you want to access.
 This classes have to extend the class _Model_ and at least implement the abstract methods.
 
 To see how it works, go to the Person class. When you have a table named _persons_ with the 
@@ -72,5 +78,34 @@ you can use the Person class the following way
     $p->age = 21;
     $p->persist();
     
+Simple, eh?
 
+### What else?
+
+- You can redirect to another controller/action from within an action by calling
+    
+        $this->callStack($controller, $action);
+
+- If you call 
+    
+        $this->setAjax();
+
+    no header and footer is rendered. This way you can use the action for ajax/json requests.
+
+- Only the public directory must be within the document root.
+
+- All stylesheets, java scripts and images go to the assets directory.
+
+- Inside the assets folder you find some stubs for the frontend, including jQuery 1.7.2, html5shiv and SASS/COMPASS stubs.
+
+
+TODOs
+-----
+
+- Much more and better documentation.
+- SPPOs need more work (more data types, relations, etc.).
+- Adding some build framework, e.g. grunt.js.
+- Adding boilerplate, etc.
+
+Fork, anyone?
 
