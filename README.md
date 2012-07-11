@@ -1,7 +1,7 @@
-yasp-mf
-=======
+YAMPF
+=====
 
-Yet Another Simple PHP MVC Framework
+Yet Another MVC PHP Framework
 
 
 What is it?
