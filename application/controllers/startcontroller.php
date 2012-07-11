@@ -10,7 +10,7 @@ class StartController extends Controller {
      * Puts a message to the view data.
      */
     public function index() {
-        $this->set("hello", "Hello, yasp-mf!");
+        $this->set("hello", "Hello, YAMPF!");
     }
 
 }
