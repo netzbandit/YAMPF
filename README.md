@@ -7,7 +7,7 @@ Yet Another MVC PHP Framework
 What is it?
 -----------
 
-yasp-mf is a simple mvc framework for building php applications. 
+YAMPF is a simple mvc framework for building php applications. 
 It uses mod_rewrite rules to route URLs to the correct controllers and actions.
 
 I started creating the framework following the tutorial here
@@ -18,11 +18,11 @@ Getting started
 ---------------
 
 To get started, just copy the project to a folder in your web server's document root. 
-Open the folder's url in the browser and you should read "Hello, yasp-mf".
+Open the folder's url in the browser and you should read "Hello, YAMPF".
 
 ### What happend?
 
-When no controller and action is given in the url, yasp-mf takes _start/index_ instead.
+When no controller and action is given in the url, YAMPF takes _start/index_ instead.
 So the method _index_ in the class _StartController_ has been called an afterwards the
 view start/index.php has been rendered. The controller just set the greetings message
 and the view displayed it inside a H1 tag.
@@ -45,7 +45,7 @@ To create a link to a controller/action use the function
 
 ### What if I want to use a database?
 
-yasp-mf also includes a very simple way to access data stored in a mysql database called sppo
+YAMPF also includes a very simple way to access data stored in a mysql database called sppo
 (self-persistent php objects). To use this functionallity, change the setting _USE_DB_ 
 (in config/config.php) to _true_ and add your db connection data to the config.
 
