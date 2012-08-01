@@ -7,7 +7,7 @@ Yet Another MVC PHP Framework
 What is it?
 -----------
 
-YAMPF is a simple mvc framework for building php applications. 
+YAMPF is a minimalistic mvc framework for building php applications. 
 It uses mod_rewrite rules to route URLs to the correct controllers and actions.
 
 I started creating the framework following the tutorial here
