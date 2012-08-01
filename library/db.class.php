@@ -2,7 +2,10 @@
 
 class Db {
     
-    private $dbHandle = 0;
+    /**
+     * @var mysqli
+     */
+    private $database = NULL;
     
     /**
      * Creates a new Db-Object and establishes Connection 
@@ -13,31 +16,23 @@ class Db {
     
     /**
 	 * Establishes db connection
-     * 
-	 * @return boolean success?
 	 */
-	private function connect($address, $account, $pwd, $name) {
-		$this->dbHandle = mysql_connect($address, $account, $pwd) or die("Can't connect!");
-		if ($this->dbHandle != 0) {
-			if (mysql_select_db($name, $this->dbHandle)) {
-				return true;
-			} else {
-				return false;
-			}
-		} else {
-			return false;
+	private function connect($host, $user, $pwd, $dbname) {
+        $this->database = mysqli_init();
+		$this->database->real_connect($host, $user, $pwd, $dbname);
+		if ($this->database === NULL || $this->database->connect_errno) {
+            die("Failed to connect to database!");
 		}
+        $this->database->set_charset("utf8");
 	}
     
     /**
      * Get the DB handle
      * 
-     * @return int
+     * @return mysqli
      */
     public function get() {
-        return $this->dbHandle;
+        return $this->database;
     }
-    
 }
-
 ?>
